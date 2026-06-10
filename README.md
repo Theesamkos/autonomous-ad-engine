@@ -2,7 +2,7 @@
 
 > An autonomous pipeline that generates, evaluates, self-heals, and progressively improves Facebook & Instagram ad copy — without human intervention.
 
-Built for the Nerdy / Varsity Tutors Gauntlet challenge. This is a v3 submission: everything in v1 and v2, plus self-healing feedback loops, quality ratchet, performance-per-token tracking, and agentic orchestration.
+This is a v3 submission: everything in v1 and v2, plus self-healing feedback loops, quality ratchet, performance-per-token tracking, and agentic orchestration.
 
 ---
 
