@@ -1,6 +1,6 @@
 /**
  * seed-demo.mjs
- * Generates 55 real ads across 3 Varsity Tutors audience segments.
+ * Generates 55 real ads across 3 SAT-prep audience segments.
  * Calls the tRPC router directly so all generation, evaluation,
  * iteration logs, and cost tracking are real data.
  *
@@ -42,7 +42,7 @@ const CAMPAIGNS = [
     audienceSegment:
       "Parents of high school juniors and seniors who are anxious about college admissions and worried their child's SAT score isn't competitive enough for top universities",
     product:
-      "Varsity Tutors 1-on-1 SAT prep — personalized online tutoring with expert tutors, flexible scheduling, and a proven track record of score improvement",
+      "1-on-1 SAT prep — personalized online tutoring with expert tutors, flexible scheduling, and a proven track record of score improvement",
     campaignGoal: "awareness",
     tone: "empowering",
     brandVoiceNotes:
@@ -54,7 +54,7 @@ const CAMPAIGNS = [
     audienceSegment:
       "High school sophomores and juniors who are stressed about their upcoming SAT, have taken a practice test and know their score needs work, and are actively looking for a solution",
     product:
-      "Varsity Tutors SAT prep — 1-on-1 online tutoring, adaptive practice tests, and personalized study plans that target your specific weak areas",
+      "SAT prep — 1-on-1 online tutoring, adaptive practice tests, and personalized study plans that target your specific weak areas",
     campaignGoal: "conversion",
     tone: "urgent",
     brandVoiceNotes:
@@ -64,9 +64,9 @@ const CAMPAIGNS = [
   {
     name: "SAT Prep — Comparison Shoppers (Retargeting)",
     audienceSegment:
-      "Families who are actively comparing SAT prep options — Varsity Tutors vs Princeton Review vs Khan Academy vs Chegg vs Kaplan — and haven't made a decision yet",
+      "Families who are actively comparing SAT prep options — Princeton Review vs Khan Academy vs Chegg vs Kaplan — and haven't made a decision yet",
     product:
-      "Varsity Tutors SAT prep — 1-on-1 personalized tutoring that adapts to your child's specific needs, unlike group classes or generic video courses",
+      "SAT prep — 1-on-1 personalized tutoring that adapts to your child's specific needs, unlike group classes or generic video courses",
     campaignGoal: "retargeting",
     tone: "professional",
     brandVoiceNotes:

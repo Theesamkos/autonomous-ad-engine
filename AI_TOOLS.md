@@ -23,7 +23,7 @@ This document records every AI tool, model, and prompt strategy used in building
 
 The generation prompt is structured in four sections:
 
-1. **System context** — Establishes the model as a direct-response copywriter for Varsity Tutors with explicit brand voice rules (empowering, knowledgeable, approachable, results-focused).
+1. **System context** — Establishes the model as a direct-response copywriter for the advertised brand with explicit brand voice rules (empowering, knowledgeable, approachable, results-focused).
 
 2. **Campaign brief** — Injects the audience segment, product/offer, campaign goal (awareness vs. conversion), and tone.
 
@@ -128,7 +128,7 @@ We deliberately do NOT pass the full history of previous ads to avoid context wi
 
 2. **Self-evaluation bias** — Using the same model for generation and evaluation creates a risk that the model is lenient on its own outputs. We partially address this with explicit rubrics and scoring anchors.
 
-3. **No ground truth calibration** — The PRD mentions real Varsity Tutors performance data would be provided via Slack. Without actual CTR/conversion data, our quality scores are based on structural best practices rather than empirical performance. A production system would calibrate the evaluator against real performance data.
+3. **No ground truth calibration** — The PRD mentions real performance data would be provided via Slack. Without actual CTR/conversion data, our quality scores are based on structural best practices rather than empirical performance. A production system would calibrate the evaluator against real performance data.
 
 4. **Context window limits** — For very long campaigns with many iteration logs, we truncate the context to avoid hitting token limits. This means the model may not see all historical context in long-running campaigns.
 

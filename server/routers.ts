@@ -46,9 +46,9 @@ function invalidateCampaignCache(campaignId: number) {
   campaignCache.delete(campaignId);
 }
 
-// ─── Brand context for Varsity Tutors ────────────────────────────────────────
+// ─── Brand context for the advertised brand ────────────────────────────────────────
 const BRAND_CONTEXT = `
-Brand: Varsity Tutors (by Nerdy)
+Brand: Autonomous Ad Generator - an autonomous system that generates, evaluates, and self-heals ad copy; sample campaigns advertise an online SAT test-prep tutoring service
 Voice: Empowering, knowledgeable, approachable, results-focused. Lead with outcomes, not features. Confident but not arrogant. Expert but not elitist. Meet people where they are.
 Primary Audience: SAT test prep — parents anxious about college admissions, high school students stressed about scores, families comparing options (Princeton Review, Khan Academy, Chegg, Kaplan).
 What works on Meta: Authentic > polished. UGC-style outperforms studio creative. Story-driven > feature-list. Pain point → solution → proof → CTA. Pattern interrupts. Social proof (reviews, testimonials, numbers) builds trust. Emotional resonance > rational argument for awareness; flip for conversion.
@@ -136,7 +136,7 @@ async function evaluateAdCopy(
   ad: { primaryText: string; headline: string; description: string; ctaButton: string },
   campaign: { audienceSegment: string; product: string; campaignGoal: string; tone: string; weightClarity: number; weightValueProp: number; weightCta: number; weightBrandVoice: number; weightEmotionalResonance: number; currentQualityThreshold: number }
 ) {
-  // Reference ad calibration: few-shot examples anchor the evaluator's scoring to real-world Varsity Tutors ad performance patterns.
+  // Reference ad calibration: few-shot examples anchor the evaluator's scoring to real-world ad performance patterns.
   // High-performing examples (8.5+) show what excellent looks like. Low-performing (5.0-6.5) show common failure modes.
   const REFERENCE_ADS_CALIBRATION = `
 CALIBRATION REFERENCE — use these to anchor your scoring:
@@ -148,7 +148,7 @@ CTA: "Get Started"
 Why it works: Specific proof point (94%, 200+), emotional reframe (doesn't define them), urgency (this week), clear CTA matching conversion goal.
 
 AVERAGE AD (target 6.5-7.5/10):
-Primary: "Struggling with the SAT? Varsity Tutors has expert tutors ready to help your student succeed. Book a session today."
+Primary: "Struggling with the SAT? Our expert tutors are ready to help your student succeed. Book a session today."
 Headline: "Expert SAT Tutors"
 CTA: "Book Now"
 Why it's average: Generic claim (expert tutors), no proof, weak emotional hook, but clear CTA and brand-appropriate.
@@ -1666,9 +1666,9 @@ Return ONLY valid JSON.`;
       sourceUrl: z.string().optional(),
     })).mutation(async ({ input }) => {
       // Use LLM to analyze the competitor ad with the same 5-dimension framework
-      const systemPrompt = `You are an expert competitive intelligence analyst for digital advertising. You evaluate competitor ads using the same 5-dimension framework used to score Varsity Tutors ads.
+      const systemPrompt = `You are an expert competitive intelligence analyst for digital advertising. You evaluate competitor ads using the same 5-dimension framework used to score our own ads.
 ${BRAND_CONTEXT}
-Analyze this competitor ad with brutal honesty. Score each dimension 1-10. Identify what they do well, where they're weak, and how Varsity Tutors can beat them.`;
+Analyze this competitor ad with brutal honesty. Score each dimension 1-10. Identify what they do well, where they're weak, and how we can beat them.`;
       const userPrompt = `Analyze this competitor ad:
 Brand: ${input.brand}
 Primary Text: "${input.primaryText}"
@@ -1681,7 +1681,7 @@ Provide:
 2. What hook/pattern stops the scroll
 3. Core emotional trigger they're using
 4. Their key strengths
-5. Their key weaknesses (where Varsity Tutors can win)
+5. Their key weaknesses (where we can win)
 6. Full analysis notes`;
       const response = await invokeLLM({
         messages: [

@@ -129,7 +129,7 @@
 - [x] Write TECHNICAL_WRITEUP.md — 1-2 page architecture overview for submission
 
 ### BLOCK 2 — Demo Data (Avoid -5 deduction)
-- [x] Build a seed script that generates 50+ ads across 3 Varsity Tutors audience segments
+- [x] Build a seed script that generates 50+ ads across 3 SAT-prep audience segments
 - [x] Run the seed script and verify 50+ ads with full evaluation scores in the database
 - [x] Export CSV of all approved ads with scores from PerformanceTracker
 
@@ -146,7 +146,7 @@
 - [x] Build a "Competitor Intelligence" panel in the UI showing patterns found
 
 ### BLOCK 5 — Final Polish & Submission Prep
-- [ ] Pre-populate the live demo with real Varsity Tutors SAT campaign data
+- [ ] Pre-populate the live demo with real SAT campaign data
 - [ ] Record a 3-5 minute demo walkthrough video
 - [x] Final TypeScript check: 0 errors
 - [x] Final test run: 17/17+ passing
@@ -171,7 +171,7 @@
 - [x] GitHub repo: PUBLIC, force-pushed with correct authorship
 - [x] TypeScript: 0 errors. Tests: 17/17 passing.
 
-## Phase 20: Latency-First Optimization (Nerdy's #1 Priority)
+## Phase 20: Latency-First Optimization (Top Priority)
 - [ ] Add DB indexes on all hot query columns (campaignId, adId, status, createdAt)
 - [ ] Fire-and-forget non-critical DB writes (iterationLog, campaignStats)
 - [ ] In-memory campaign cache (30s TTL) to avoid repeated DB reads per pipeline iteration

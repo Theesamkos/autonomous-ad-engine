@@ -1,5 +1,5 @@
 # Decision Log — Autonomous Ad Engine
-**Author:** Sam Kos | **Project:** Nerdy / Varsity Tutors Autonomous Content Generation System | **Date:** March 2026
+**Author:** Sam Kos | **Project:** Autonomous Ad Generator | **Date:** March 2026
 
 ---
 
@@ -25,11 +25,11 @@ Most AI ad tools are black boxes. You put in a brief, you get copy, you have no 
 
 **Clarity** is the foundation. If someone can't understand what you're offering in under three seconds, nothing else matters. On mobile feeds, you have less than a second to communicate your core message before the thumb moves. A confusing ad is a dead ad regardless of how emotionally resonant it is.
 
-**Value Proposition** is what separates Varsity Tutors from the noise. The SAT prep market is crowded — Princeton Review, Khan Academy, Chegg, Kaplan are all running ads in the same feed. Generic "we have tutors" copy blends in. Specific, differentiated benefits ("raise your SAT score 200+ points") stand out. I weighted this highest (25%) because it's the dimension most likely to drive actual conversion decisions.
+**Value Proposition** is what separates the brand from the noise. The SAT prep market is crowded — Princeton Review, Khan Academy, Chegg, Kaplan are all running ads in the same feed. Generic "we have tutors" copy blends in. Specific, differentiated benefits ("raise your SAT score 200+ points") stand out. I weighted this highest (25%) because it's the dimension most likely to drive actual conversion decisions.
 
 **Call to Action** is often underweighted in ad evaluation frameworks. A weak CTA kills conversion even when everything else is strong. "Learn More" is fine for awareness; "Start Your Free Practice Test" is dramatically better for conversion. The CTA needs to match the funnel stage, and most generated ads get this wrong.
 
-**Brand Voice** matters more for Varsity Tutors than for most brands because they're in an emotionally charged category (college admissions anxiety). The brand voice — empowering, knowledgeable, approachable — is a deliberate counter-positioning to the fear-based messaging that competitors often use. An ad that sounds like a generic education company undermines the brand even if it converts.
+**Brand Voice** matters more for this brand than for most brands because they're in an emotionally charged category (college admissions anxiety). The brand voice — empowering, knowledgeable, approachable — is a deliberate counter-positioning to the fear-based messaging that competitors often use. An ad that sounds like a generic education company undermines the brand even if it converts.
 
 **Emotional Resonance** is the dimension I was most uncertain about including as a scored dimension. It's the hardest to measure objectively. But the PRD's brand context made it clear: "emotional resonance > rational argument for awareness." For the parent audience especially, the emotional hook (college admissions anxiety, wanting the best for your kid) is the primary driver. I kept it in but weighted it second-lowest (15% for brand voice, 20% for emotional resonance) because it's the dimension where LLM scoring is least reliable.
 
@@ -43,7 +43,7 @@ Most AI ad tools are black boxes. You put in a brief, you get copy, you have no 
 
 **Why not equal weights (20% each)?** I ran the system with equal weights initially and found that it was producing ads that scored well overall but had weak value propositions. Equal weighting treats "sounds like the brand" as equally important as "communicates a compelling reason to buy." For a conversion-focused campaign, that's wrong. Value Prop is the dimension most directly tied to whether someone actually clicks.
 
-**Why Brand Voice is lowest at 15%:** This was a deliberate choice that I'm not fully confident in. Brand Voice is important for long-term brand health, but for a direct response campaign (which most Meta ads are), a slightly off-brand ad that converts is better than a perfectly on-brand ad that doesn't. I made it the lowest weight to avoid the system over-optimizing for "sounds like Varsity Tutors" at the expense of actual persuasion.
+**Why Brand Voice is lowest at 15%:** This was a deliberate choice that I'm not fully confident in. Brand Voice is important for long-term brand health, but for a direct response campaign (which most Meta ads are), a slightly off-brand ad that converts is better than a perfectly on-brand ad that doesn't. I made it the lowest weight to avoid the system over-optimizing for "sounds on-brand" at the expense of actual persuasion.
 
 **Why I made weights user-adjustable:** Different campaigns have different goals. An awareness campaign for parents should weight Emotional Resonance higher. A retargeting campaign for comparison shoppers should weight Value Prop and CTA even higher. Making the weights a per-campaign setting lets the system adapt to the brief rather than applying a one-size-fits-all formula. The constraint that weights must sum to 100 enforces the trade-off: if you care more about one dimension, you have to care less about another.
 
@@ -125,7 +125,7 @@ Third, the alternative (rules-based evaluation) would have been worse. A keyword
 
 **The quality ratchet has no memory of why it ratcheted:** If the threshold rises to 7.5 because of a few excellent runs, and then the campaign brief changes to target a harder audience, the system will struggle to meet the higher threshold without any awareness of why it was raised. A smarter ratchet would track the conditions under which it ratcheted and be more conservative about raising the bar for campaigns with harder briefs.
 
-**No real reference ad calibration:** The PRD mentions that real Varsity Tutors ads and performance data would be provided via the Gauntlet/Nerdy Slack channel. I built the evaluation framework without access to those reference ads. The scoring rubric is based on general Meta ad best practices and the brand context in the PRD, not on calibration against actual high-performing Varsity Tutors ads. This is probably the biggest gap in the evaluation quality.
+**No real reference ad calibration:** The PRD mentions that real reference ads and performance data would be provided via the Gauntlet Slack channel. I built the evaluation framework without access to those reference ads. The scoring rubric is based on general Meta ad best practices and the brand context in the PRD, not on calibration against actual high-performing ads. This is probably the biggest gap in the evaluation quality.
 
 ---
 

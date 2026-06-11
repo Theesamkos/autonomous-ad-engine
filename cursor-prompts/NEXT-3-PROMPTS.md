@@ -13,7 +13,7 @@
 ### PASTE THIS INTO CURSOR AGENT:
 
 You are working on the Autonomous Ad Engine project at the path:
-`nerdy-autonomous-ad-engine/`
+`autonomous-ad-engine/`
 
 **Task:** Add a "How It Works" section to the Home page between the stats bar and the features grid.
 
@@ -79,7 +79,7 @@ Icon: CheckCircle2 (already imported)
 ### PASTE THIS INTO CURSOR AGENT:
 
 You are working on the Autonomous Ad Engine project at the path:
-`nerdy-autonomous-ad-engine/`
+`autonomous-ad-engine/`
 
 **Task:** When any ad scores ≥ 9.0 (weighted score), automatically notify the project owner via the built-in notification system. Also add a small UI indicator on the ad card when the score is ≥ 9.0.
 
@@ -158,7 +158,7 @@ Also add the same badge in the `BulkResultsPanel` (the panel that shows bulk gen
 ### PASTE THIS INTO CURSOR AGENT:
 
 You are working on the Autonomous Ad Engine project at the path:
-`nerdy-autonomous-ad-engine/`
+`autonomous-ad-engine/`
 
 **Task:** Add a "Share" button to the CampaignDetail page header that calls the existing `trpc.campaigns.createShareLink` procedure and copies the resulting URL to the clipboard.
 

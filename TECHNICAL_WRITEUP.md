@@ -1,11 +1,11 @@
 # Technical Writeup — Autonomous Ad Engine
-**Author:** Sam Kos | **Submission:** Nerdy / Varsity Tutors Gauntlet | **Scope:** v3 (Autonomous Ad Engine)
+**Author:** Sam Kos | **Submission:** Autonomous Ad Generator | **Scope:** v3 (Autonomous Ad Engine)
 
 ---
 
 ## System Overview
 
-The Autonomous Ad Engine is a full-stack web application that implements an autonomous pipeline for generating, evaluating, and iteratively improving Facebook and Instagram ad copy for Varsity Tutors (Nerdy). The system is built around three core loops: a **generation loop** that produces structured ad copy from campaign briefs, an **evaluation loop** that scores every ad across five quality dimensions using an LLM judge, and a **self-healing loop** that automatically rewrites ads that fall below the quality threshold, targeting the specific dimension that needs improvement.
+The Autonomous Ad Engine is a full-stack web application that implements an autonomous pipeline for generating, evaluating, and iteratively improving Facebook and Instagram ad copy for an online SAT test-prep tutoring service. The system is built around three core loops: a **generation loop** that produces structured ad copy from campaign briefs, an **evaluation loop** that scores every ad across five quality dimensions using an LLM judge, and a **self-healing loop** that automatically rewrites ads that fall below the quality threshold, targeting the specific dimension that needs improvement.
 
 The north star metric throughout the design is **performance per token** — how much quality the system produces per dollar of LLM API spend. Every ad tracks its token usage and estimated cost, and the Performance Tracker page visualizes quality vs. cost across all generated ads.
 
@@ -79,7 +79,7 @@ Every generation run starts with a campaign brief stored in the database:
 
 ### Step 1: Ad Copy Generation
 
-The generation function (`generateAdCopy`) sends two messages to the LLM: a system prompt containing the Varsity Tutors brand context, Meta ad best practices, and mode-specific instructions; and a user prompt containing the campaign brief. The model returns structured JSON with four required fields:
+The generation function (`generateAdCopy`) sends two messages to the LLM: a system prompt containing the brand context, Meta ad best practices, and mode-specific instructions; and a user prompt containing the campaign brief. The model returns structured JSON with four required fields:
 
 - `primaryText` — the main copy above the image (1–3 sentences, stops the scroll)
 - `headline` — bold text below the image (max 40 characters, punchy)
@@ -148,7 +148,7 @@ The PRD specifies five quality dimensions. Here is how each is operationalized i
 
 **Call to Action (default weight: 20%)** — Is the next step clear, urgent, and low-friction? Vague CTAs ("learn more") score lower than specific, stage-appropriate CTAs ("start your free practice test"). The evaluator checks whether the CTA matches the campaign goal (awareness vs. conversion vs. retargeting).
 
-**Brand Voice (default weight: 15%)** — Does the ad sound like Varsity Tutors? The evaluator checks for the brand's four voice attributes: empowering, knowledgeable, approachable, results-focused. Ads that sound generic or use competitor-style fear-based messaging score low. This dimension is weighted lowest because a slightly off-brand ad that converts is better than a perfectly on-brand ad that doesn't.
+**Brand Voice (default weight: 15%)** — Does the ad sound on-brand? The evaluator checks for the brand's four voice attributes: empowering, knowledgeable, approachable, results-focused. Ads that sound generic or use competitor-style fear-based messaging score low. This dimension is weighted lowest because a slightly off-brand ad that converts is better than a perfectly on-brand ad that doesn't.
 
 **Emotional Resonance (default weight: 20%)** — Does the ad connect emotionally with the target audience? For the parent audience, this means tapping into college admissions anxiety and the desire to give their child every advantage. For the student audience, it means connecting with test anxiety and the ambition to succeed. Flat, purely rational ads score low.
 
@@ -217,7 +217,7 @@ Tests run in under 700ms using Vitest with mocked LLM calls.
 
 The system's primary limitation is that the evaluator uses the same model as the generator, which introduces potential self-evaluation bias. A production system would use a separate evaluation model and validate LLM scores against human judgment on a sample of approved ads.
 
-The evaluation framework has not been calibrated against real Varsity Tutors performance data. The scoring rubrics are based on general Meta ad best practices and the brand context provided in the PRD brief. Calibration against actual high-performing Varsity Tutors ads would significantly improve evaluation accuracy.
+The evaluation framework has not been calibrated against real-world performance data. The scoring rubrics are based on general Meta ad best practices and the brand context provided in the PRD brief. Calibration against actual high-performing ads would significantly improve evaluation accuracy.
 
 The most impactful next step would be competitive intelligence from the Meta Ad Library — pulling real competitor ads from Princeton Review, Khan Academy, Chegg, and Kaplan, analyzing their patterns, and feeding those patterns into the generation prompts. This is the highest-value feature not yet implemented.
 

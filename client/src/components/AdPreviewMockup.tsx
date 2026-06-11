@@ -32,9 +32,9 @@ function FacebookPreview({ primaryText, headline, description, ctaButton, imageP
       <div className="flex items-center gap-2 px-3 py-2.5" style={{ background: "#fff", borderBottom: "1px solid #e5e7eb" }}>
         {/* Avatar */}
         <div className="w-8 h-8 rounded-full flex items-center justify-center text-white text-xs font-bold flex-shrink-0"
-          style={{ background: "linear-gradient(135deg,#22d3ee,#3b82f6)" }}>VT</div>
+          style={{ background: "linear-gradient(135deg,#22d3ee,#3b82f6)" }}>AAG</div>
         <div className="flex-1 min-w-0">
-          <div className="font-bold text-[11px] leading-tight" style={{ color: "#111" }}>Varsity Tutors</div>
+          <div className="font-bold text-[11px] leading-tight" style={{ color: "#111" }}>Autonomous Ad Generator</div>
           <div className="flex items-center gap-1">
             <span className="text-xs" style={{ color: "#6b7280" }}>Sponsored</span>
             <span style={{ color: "#6b7280", fontSize: 8 }}>·</span>
@@ -119,9 +119,9 @@ function InstagramPreview({ primaryText, headline, description, ctaButton, image
       {/* IG Top bar */}
       <div className="flex items-center gap-2 px-3 py-2">
         <div className="w-7 h-7 rounded-full flex items-center justify-center text-white text-xs font-bold flex-shrink-0"
-          style={{ background: "linear-gradient(135deg,#f97316,#ec4899,#8b5cf6)" }}>VT</div>
+          style={{ background: "linear-gradient(135deg,#f97316,#ec4899,#8b5cf6)" }}>AAG</div>
         <div className="flex-1 min-w-0">
-          <div className="font-semibold text-[11px]" style={{ color: "#111" }}>varsitytutors</div>
+          <div className="font-semibold text-[11px]" style={{ color: "#111" }}>adgenerator</div>
           <div className="text-xs" style={{ color: "#8e8e8e" }}>Sponsored</div>
         </div>
         <MoreHorizontal size={15} style={{ color: "#111" }} />
@@ -159,7 +159,7 @@ function InstagramPreview({ primaryText, headline, description, ctaButton, image
 
       {/* Caption */}
       <div className="px-3 pb-2">
-        <span className="font-semibold text-[11px]" style={{ color: "#111" }}>varsitytutors </span>
+        <span className="font-semibold text-[11px]" style={{ color: "#111" }}>adgenerator </span>
         <span className="text-[11px]" style={{ color: "#111" }}>
           {primaryText.length > 100 ? primaryText.slice(0, 100) + "…" : primaryText}
         </span>
