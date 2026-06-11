@@ -35,8 +35,8 @@ Every ad gets scored across five dimensions by an LLM judge: **Clarity**, **Valu
 
 ```bash
 # Clone and install
-git clone https://github.com/Theesamkos/nerdy-autonomous-ad-engine.git
-cd nerdy-autonomous-ad-engine
+git clone https://github.com/Theesamkos/autonomous-ad-engine.git
+cd autonomous-ad-engine
 pnpm install
 
 # Start the dev server (frontend + backend together)
@@ -77,7 +77,7 @@ pnpm drizzle-kit generate
 
 Navigate to **Dashboard → New Campaign**. Fill in:
 - **Audience segment** — who you're targeting (e.g., "Parents of high school juniors anxious about SAT scores")
-- **Product/offer** — what you're advertising (e.g., "Varsity Tutors SAT prep — 1-on-1 online tutoring")
+- **Product/offer** — what you're advertising (e.g., "SAT prep — 1-on-1 online tutoring")
 - **Campaign goal** — awareness, conversion, or retargeting
 - **Tone** — empowering, urgent, friendly, professional, or playful
 - **Brand voice notes** — optional additional context
@@ -188,7 +188,7 @@ TECHNICAL_WRITEUP.md     ← Architecture and system design
 
 - LLM evaluation scores have variance, particularly on Emotional Resonance (±0.5–1.0 across runs)
 - Cost estimates are approximations based on GPT-4o-mini pricing; actual costs depend on the underlying model
-- The system has not been calibrated against real Varsity Tutors performance data (reference ads were not available)
+- The system has not been calibrated against real-world performance data (reference ads were not available)
 - Vague campaign briefs produce generic ads that pass the quality threshold but would not perform well in production
 - The evaluator uses the same model as the generator, which introduces potential self-evaluation bias
 
